@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<link rel="stylesheet" type="text/css" href="css/font.css"/>
+	<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+	<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body >
+	<h1 class="h1">
+		<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+    	<p data-lang="">充币</p>
+    	<a href="recharge_record.html" data-lang="">充值记录</a>
+	</h1>
+	<div class="select_box">
+		<div class="div">选择币种</div>
+		<div class="div_r"><span class="coin">USDT</span><img src="img/h_sel.png"/></div>
+	</div>
+	<div class="charge_money">
+		<div class="charge_bbj">
+			<div id="code" style="padding:5% 0;margin: auto;">
+			</div>
+			<p>充币地址</p>
+			<div class="chas_lianjie">
+				<input readonly="readonly" value="1723d3pBbYgzLdBPPdCp7CzeSjy5SSevquSevqu" id="biao1">
+				<a onclick="copyUrl2()" >复制地址</a>
+			</div>
+		</div>
+		<dl class="charge_dl">
+			<dt>转入说明</dt>
+			<dd>1)转账需要相应网络进行确认,达到1个确认后您的数字资产自动充币到你的帐户中。</dd>
+			<dd>2)此地址是您唯一且独自使用的转入地址,您可以同时进行多次充币也可将此地址做为您在矿池的付款地址。</dd>
+		</dl>
+	</div>
+	<div class="mo">
+		<div class="mo_box">
+			<ul>
+				<li class="active">USDT</li>
+				<li>TBT</li>
+			</ul>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery.qrcode.min.js"></script>
+	<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$(".select_box").click(function(){$(".mo").show();})
+		$(".mo").click(function(){$(this).hide();})
+		$(".mo .mo_box ul li").each(function(){
+			$(this).click(function(){
+				$(".coin").html($(this).html());
+				console.log($(this));
+				$(this).addClass("active").siblings().removeClass("active");;
+				$(".mo").hide();
+			})
+		})
+		
+		
+		$("#code").qrcode({
+	   		width: 120, //宽度 
+	    	height:120, //高度 
+	    	text: "www.zhizuobiao.com" //任意内容 
+		});
+		$('canvas').css({
+	        'display': 'block',
+	        'margin': 'auto',
+	        'padding': '10px',
+	        'background': '#fff',
+	    });
+		
+		function copyUrl2(){
+			var Url2=document.getElementById("biao1");
+			 Url2.select(); // 选择对象
+			document.execCommand("Copy"); // 执行浏览器复制命令
+			layer.msg("已复制好，可贴粘。");
+		 }
+	</script>
+</body>
+</html>

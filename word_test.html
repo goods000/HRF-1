@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.title{color: #fff !important;}
+		</style>
+	</head>
+	<body>
+		<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+	    	<p data-lang="">验证助记词</p>
+		</h1>
+		<div class="word">
+			<div class="word_box" id="word_box">
+				<span class="book">choose</span>
+				<span class="book">retrieved</span>
+			</div>
+			<div class="word_zi">
+				<span class="active">choose</span>
+				<span class="">sky</span>
+				<span class="">mnemonic</span>
+				<span class="">volcano</span>
+				<span class="">picture</span>
+				<span class="">otherwise</span>
+				<span class="">Please</span>
+				<span class="active">retrieved</span>
+				<span class="">cannot</span>
+				<span class="">account</span>
+				<span class="">save</span>
+				<span class="">otherwise</span>
+			</div>
+			<p class="title">请按顺序点击助词输入</p>
+			<button class="anniu" onclick="location.href='word_remember.html'">确定</button>
+		</div>
+		
+	</body>
+	<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var value =document.getElementById("word_box");
+		$(".word .word_zi").children().each(function(i,item){
+			$(this).click(function(){
+				$(this).toggleClass("active");
+				if ($(this).hasClass("active")) {
+					var num = $(this).html();
+	                var dom=document.createElement("span");
+	                dom.innerHTML=num;
+					var word = document.body.appendChild(dom);
+					value.appendChild(word);
+                }else{
+                	$(this).removeClass("active");
+                	var num = $(this).html();
+                	$(".word_box span").each(function(i){
+                		var type = $(".word_box span").eq(i).text();
+                		if (type == num) {
+							$(this).remove();
+							arr.splice($.inArray(num,arr),1);
+	                	}
+                	})
+                }
+			})
+		})
+	</script>
+</html>

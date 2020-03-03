@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/font.css" />
+</head>
+<body>
+	<div class="login">
+		<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+	    	<p data-lang="">设置登录密码</p>
+		</h1>
+		<div class="deng">
+			<p class="deng_title">请设置您的登录密码</p>
+			<div class="deng_box">
+				<input type="number" placeholder="请输入图形验证码" name="" id="code" value="" />
+				<p id="code_box"></p>
+			</div>
+			<div class="deng_box">
+				<input type="password" placeholder="请输入大于6字符和数字组合的密码" name="" id="passwords" value="" />
+			</div>
+			<div class="deng_box">
+				<input type="password" placeholder="请重新输入密码" name="" id="passwordss" value="" />
+			</div>
+			<div class="deng_box">
+				<input type="number" placeholder="请填写邀请码" name="" id="invitation" value="" />
+				<img src="img/saoyisao.png" class="sao" onClick="BSL.Qcode('0','qrcodeCallback')"/>
+			</div>
+			<div class="agreement">
+				<span>点击注册代表同意</span><i>《用户服务协议》</i>
+			</div>
+			<button class="anniu" onclick="login()">继续</button>
+			<div class="autton" onclick="location.href='login.html'">
+				<span>已有账号，</span><i>立即登录</i>
+			</div>
+			<input type="hidden" name="yzm" id="yzm" value="" />
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+	<script type="text/javascript" src="js/Zcheck.js" ></script>
+	<script type="text/javascript" src="layer/layer.js" ></script>
+	<script>
+		let image = document.createElement('img');
+	    image.src = drawCode(100,50,'green');
+	    image.onclick = function() {
+	        this.src = drawCode(100,50,'green');
+	    };
+		document.getElementById("code_box").appendChild(image);
+		
+		function qrcodeCallback(result){
+			var lang="${lang}";
+			if(result.indexOf(window.location.host)==-1){ //等于-1表示这个字符串中没有o这个字符
+				layer.msg('当前扫描的不属于HRF二维码');
+			}else{
+				window.location.href=result
+			}
+		}
+		
+		function login(){
+			var passwords = $("#passwords").val();
+			var passwordss = $("#passwordss").val();
+			var invitation = $("#invitation").val();
+			var code = $("#code").val();
+			var yzm = $("#yzm").text();
+			if(code === ""){
+				layer.msg('请输入图形验证码');
+				$("#code").focus();
+				return false;
+			}
+			if(code === ""){
+				layer.msg('请输入验证码');
+				$("#code").focus();
+				return false;
+			}
+			if(code != yzm){
+				layer.msg('请输入正确的验证码');
+				$("#yzm").focus();
+				return false;
+			}
+			if(passwords === ""){
+				layer.msg('请输入密码');
+				$("#passwords").focus();
+				return false;
+			}
+			if(passwordss === ""){
+				layer.msg('请输入确认密码');
+				$("#passwordss").focus();
+				return false;
+			}
+			if(invitation === ""){
+				layer.msg('请输入推荐人');
+				$("#invitation").focus();
+				return false;
+			}
+			location.href='pay_psd.html'
+		}
+		$("#passwordss").blur(function(){
+			var passwords = $("#passwords").val();
+			var passwordss = $("#passwordss").val();
+				if(passwords == passwordss){
+					return false;
+				}else{
+					layer.msg('两次密码设置不一致');
+					$("#passwords").val('');
+					$("#passwords").focus();
+					
+				}
+			});
+	</script>
+</body>
+</html>

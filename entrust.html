@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+	    	<p data-lang="">委托管理</p>
+		</h1>
+		<div class="recode-tab">
+			<div class="tab-a">
+				<a href="javascript:;" class="ook">当前委托<span></span></a>
+				<a href="javascript:;">历史委托<span></span></a>
+
+			</div>
+			<div class="recodetab-list mr">
+				<div class="tab-list-li">
+					<div class="recode-cont1">
+						<div class="title">
+							<span class="zi">买入</span><span>HRF/USDT</span>
+						</div>
+						<div class="time">
+							14:00  10/21
+						</div>
+					</div>
+					<div class="recode-cont2">
+						<dl>
+							<dt><p>价格（USDT)</p><span>6.326</span></dt>
+							<dt><p>数量（USDT)</p><span>100</span></dt>
+							<dt><p>已成交（USDT)</p><span>100</span></dt>
+						</dl>
+					</div>
+				</div>
+				<div class="tab-list-li">
+					<div class="recode-cont1">
+						<div class="title">
+							<span class="zi">买入</span><span>HRF/USDT</span>
+						</div>
+						<div class="time">
+							14:00  10/21
+						</div>
+					</div>
+					<div class="recode-cont2">
+						<dl>
+							<dt><p>价格（USDT)</p><span>6.326</span></dt>
+							<dt><p>数量（USDT)</p><span>100</span></dt>
+							<dt><p>已成交（USDT)</p><span>100</span></dt>
+						</dl>
+					</div>
+				</div>
+				<div class="tab-list-li">
+					<div class="recode-cont1">
+						<div class="title">
+							<span class="zi">买入</span><span>HRF/USDT</span>
+						</div>
+						<div class="time">
+							14:00  10/21
+						</div>
+					</div>
+					<div class="recode-cont2">
+						<dl>
+							<dt><p>价格（USDT)</p><span>6.326</span></dt>
+							<dt><p>数量（USDT)</p><span>100</span></dt>
+							<dt><p>已成交（USDT)</p><span>100</span></dt>
+						</dl>
+					</div>
+				</div>
+			</div>
+			<div class="recodetab-list">
+				<div class="tab-list-li">
+					<div class="recode-cont1">
+						<div class="title">
+							<span class="zi">买入</span><span>HRF/USDT</span>
+						</div>
+						<div class="time">
+							14:00  10/21
+						</div>
+					</div>
+					<div class="recode-cont2">
+						<dl>
+							<dt><p>价格（USDT)</p><span>6.326</span></dt>
+							<dt><p>数量（USDT)</p><span>100</span></dt>
+							<dt><p>已成交（USDT)</p><span>100</span></dt>
+						</dl>
+					</div>
+				</div>
+			</div>
+	</body>
+	<script type="text/javascript">
+		$('.tab-a a').click(function(){
+			var index = $('.tab-a a').index(this);
+			$('.tab-a a').removeClass('ook').eq(index).addClass('ook');
+			$('.recodetab-list').removeClass('mr').eq(index).addClass('mr')
+		})
+	</script>
+</html>

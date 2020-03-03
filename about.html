@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/font.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+	<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+	    	<p data-lang="shoukuanxinxi">关于我们</p>
+	</h1>
+	<div class="about">
+		<div class="about_top">
+			<img src="img/logo.png"/>
+			<h2>蓝宇</h2>
+			<p>V 1.0.0</p>
+		</div>
+		<ul class="about_ul">
+			<li><a href="feedback.html"><p>意见反馈</p><span><i class="iconfont icon-gengduo1"></i></span></a></li>
+			<li><a onclick="yuyan()"><p>语言切换</p><span><s data-lang="qieehuan">中文</s><i class="iconfont icon-gengduo1"></i></span></a></li>
+			<li><a onclick="BSL.cacheSize('cache')"><p>清除缓存</p><span><s>266.25K</s><i class="iconfont icon-gengduo1"></i></span></a></li>
+		</ul>
+		<div class="nav_language">
+            <div class="language_xuan language_t">
+                <ul class="language">
+                        <li class="li_hover">
+                           <ul id="languages" class="menu_nav more_lang">
+                                <li attr="en" class="my"><a href="javascript:;" data-lang="englist">英文</a></li>
+                                <li attr="zh_CH" class="my"><a href="javascript:;" data-lang="fanti">繁体</a></li>
+                            </ul>
+                        </li>
+                </ul> 
+            </div>
+        </div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+	<script type="text/javascript" src="js/jquery.i18n.properties.min.js" ></script>
+	<script type="text/javascript" src="js/language.js" ></script>
+	<script>
+	function yuyan(){
+		$(".nav_language").toggle();
+	}
+        $(".wocao").click(function(){
+        $("#wowocao").css({"position":"absolute","right":"0px"});
+   	})
+	function cache(result){
+		alert(result);
+	}
+</script>
+</body>
+</html>

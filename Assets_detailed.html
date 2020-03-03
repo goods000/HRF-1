@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/touchslider.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.wallet{margin-bottom: 15vh;}
+			.wallet .wallet_coin,.index{margin: 0;}
+			.wallet .wallet_coin .coin_box{background: none;}
+			.wallet .wallet_coin .coin_box .coin_r{width: 50%;}
+			.wallet .wallet_coin .coin_box{padding: 0;margin: 0;}
+			.wallet .wallet_coin .coin_box .coin_l{display: block;margin: 0 3%;}
+			.wallet .wallet_coin .coin_box .coin_l .lan{font-size: 1.5rem;}
+			.wallet .wallet_coin .coin_box .coin_l .ii{display: block;margin-top: 3vh;}
+			.wallet .wallet_coin .coin_box .coin_l span{color: #6982A3;font-size: 0.6rem;}
+			.wallet .wallet_coin .coin_box .coin_l .ii i{color: #03FBFE;font-size: 0.6rem;}
+			.wallet .wallet_coin .coin_box .coin_r .rr div .wallet_ti{font-size: 0.9rem;}
+			.li_list{background: none;}
+			.page{padding: 20px 0 15px;}
+			.page a.active{color: #03FBFE;border-bottom: none;}
+			.page li{margin: 0 5%;}
+			.recharge_btn_wallet{background: #131F30;}
+			.recode-tab{height: 25vh;background: none;}
+			.recode-tab .tab-a a{width: 50%;text-align: center;}
+			.recode-tab .tab-a .ook span{width: 100%;bottom: -15px;left: 0;}
+			.index .hang_box{background: none;}
+			.index .hang_box .list ul li{padding: 6px 4%;width: 92%;}
+			.recodetab-list{width: 94%;background: none;}
+		</style>
+	</head>
+	<body>
+		<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+	    	<p><span>HRF(USDT)</span><img src="img/h_sel.png"/></p>
+		</h1>
+		<div class="wallet">
+			<div class="wallet_coin">
+				<div class="coin_box" onclick="location.href='recharge_HRF.html'">
+					<div class="coin_l">
+						<p class="lan">0.4900</p>
+						<div class="ii">
+							<span>≈20.77CNY</span>
+							<i>-8.78%</i>
+						</div>
+					</div>
+					<div class="coin_r">
+						<div class="rr">
+							<div class="">
+								<span class="wallet_ti">高(24H)</span>
+								<span class="wallet_ti">0.5372</span>
+							</div>
+							<div class="">
+								<span class="wallet_ti">低(24H)</span>
+								<span class="wallet_ti">0.4857</span>
+							</div>
+							<div class="">
+								<span class="wallet_ti">量(24H)</span>
+								<span class="wallet_ti">33178.8663</span>
+							</div>
+							<div class="">
+								<span class="wallet_ti">历史最高</span>
+								<span class="wallet_ti">0.5710</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!--K线图-->
+			<div class="container box-163css">
+				<div id="pagenavi1" class="page">
+					<ul>
+						<li><a href="javascript:;">分时</a></li>
+						<li><a href="javascript:;">1分</a></li>
+						<li><a href="javascript:;">5分</a></li>
+						<li><a href="javascript:;">15分</a></li>
+						<li><a href="javascript:;">30分</a></li>
+						<li><a href="javascript:;">60分</a></li>
+						<li><a href="javascript:;">日k</a></li>
+					</ul>
+				</div>
+				<div class="set_box">
+					<a href="Assets_set.html" class="set_btn">设置均线</a>
+					<div class="set_title">
+						<p><span class="circle a"></span><span class="am">MA5:0.51</span></p>
+						<p><span class="circle b"></span><span class="am">MA10:0.50</span></p>
+						<p><span class="circle c"></span><span class="am">MA30:0.53</span></p>
+						<p><span class="circle d"></span><span class="am">MA60:0.00</span></p>
+						<p><span class="circle e"></span><span class="am">MA120:0.00</span></p>
+					</div>
+				</div>
+				<div id="slider1" class="swipe">
+					<ul class="box01_list">
+						<li class="li_list">
+							<div id="chartmain" style="width: 100%;height:300px;"></div> 
+						</li>
+						<li class="li_list">
+							
+						</li>
+						<li class="li_list">
+							
+						</li>
+						<li class="li_list">
+							
+						</li>
+						<li class="li_list">
+							
+						</li>
+					</ul>
+
+				</div>
+			</div>
+			
+			<!--记录-->		
+			<div class="recode-tab">
+				<div class="tab-a">
+					<a href="javascript:;" class="ook">委托<span></span></a>
+					<a href="javascript:;">成交<span></span></a>
+				</div>
+				<div class="recodetab-list mr">
+					<div class="type_box">
+						<p>买盘数量</p>
+						<p>价格</p>
+						<p>卖盘数量</p>
+					</div>
+					<div class="box">
+						<div class="left">
+							<div class="index"> 
+								<div class="hang_box mt">
+									<div class="list">
+										<ul>
+											<li>
+												<div class="info_box">120.6406</div>
+												<div class="info_box green">0.4888</div>
+											</li>
+											<li>
+												<div class="info_box">80.0000</div>
+												<div class="info_box green">0.4887</div>
+											</li>
+											<li>
+												<div class="info_box">140.0000</div>
+												<div class="info_box green">0.4884</div>
+											</li>
+											<li>
+												<div class="info_box">160.0000</div>
+												<div class="info_box green">0.4889</div>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="right">
+						<div class="index"> 
+							<div class="hang_box mt">
+								<div class="list">
+									<ul>
+										<li>
+											<div class="info_box red">0.5350</div>
+											<div class="info_box">1443.0602</div>
+										</li>
+										<li>
+											<div class="info_box red">0.5340</div>
+											<div class="info_box">2326.7014</div>
+										</li>
+										<li>
+											<div class="info_box red">0.5348</div>
+											<div class="info_box">793.0000</div>
+										</li>
+										<li>
+											<div class="info_box red">0.5346</div>
+											<div class="info_box">456.1545</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+				<div class="recodetab-list">
+					<div class="type_box">
+						<p>成交时间</p>
+						<p>成交价格</p>
+						<p>数量</p>
+					</div>
+					<div class="index" style="height: 15vh;overflow-y: scroll;"> 
+						<div class="hang_box mt">
+							<div class="list">
+								<ul>
+									<li>
+										<div class="info_box">17:39:12</div>
+										<div class="info_box">0.5200</div>
+										<div class="info_box">203.0000</div>
+									</li>
+									<li>
+										<div class="info_box">15:18:45</div>
+										<div class="info_box">0.5200</div>
+										<div class="info_box">45.8587</div>
+									</li>
+									<li>
+										<div class="info_box">15:16:33</div>
+										<div class="info_box">0.5200</div>
+										<div class="info_box">512.9607</div>
+									</li>
+									<li>
+										<div class="info_box">15:02:39</div>
+										<div class="info_box">0.4888</div>
+										<div class="info_box">120.606</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--按钮-->
+		<div class="recharge_btn_wallet">
+			<div class="re_btn_l" onclick="location.href='Asstes.html'">买入</div>
+			<div class="re_btn_r" onclick="location.href='Asstes.html'">卖出</div>
+		</div>
+	</body>
+	<script src="js/slide.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/echarts.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		/*切换*/
+		$('.tab-a a').click(function(){
+			var index = $('.tab-a a').index(this);
+			$('.tab-a a').removeClass('ook').eq(index).addClass('ook');
+			$('.recodetab-list').removeClass('mr').eq(index).addClass('mr')
+		})
+	</script>
+	<script src="js/charts.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+	</script>
+</html>

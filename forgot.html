@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/font.css" />
+    <style type="text/css">
+    	.select_box .div_r img{width: 65%;margin-top: 15%;}
+    	.select_box .div{color:#03FBFE;}
+    	.deng{padding: 0 15px;}
+    </style>
+</head>
+<body>
+	<div class="login">
+		<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+	    	<p data-lang="shoukuanxinxi">忘记密码</p>
+		</h1>
+		<div class="select_box">
+			<div class="div">登录账号</div>
+			<div class="div_r"><img src="img/s_sel.png"/></div>
+		</div>
+		<div class="deng">
+			<p class="deng_title">您能通过助记词重置密码</p>
+			<textarea name="" id="word" placeholder="请用分隔符分割助词器" rows="" cols=""></textarea>
+		</div>
+		
+		<button class="annius" onclick="login()">下一步</button>
+	</div>
+	
+	<div class="mo">
+		<div class="mo_box">
+			<div class="mo_title">密码类型</div>
+			<ul>
+				<li class="active">登录账号</li>
+				<li>登录密码</li>
+				<li>支付密码</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+	<script type="text/javascript" src="js/Zcheck.js" ></script>
+	<script type="text/javascript" src="layer/layer.js" ></script>
+	<script>
+		$(".select_box").click(function(){$(".mo").show();})
+		$(".mo").click(function(){$(this).hide();})
+		$(".mo .mo_box ul li").each(function(){
+			$(this).click(function(){
+				$(".select_box .div").html($(this).html());
+				console.log($(this));
+				$(this).addClass("active").siblings().removeClass("active");;
+				$(".mo").hide();
+			})
+		})
+		
+		function login(){
+			var phone = $("#word").val();
+			if( phone === ""){
+				layer.msg('请输入助记词');
+				$("#word").focus();
+				return false;
+			}
+			if ($(".select_box .div").html() == "登录密码" || $(".select_box .div").html() == "支付密码") {
+				location.href='login_psd.html';
+			}
+			if ($(".select_box .div").html() == "登录账号") {
+				location.href='login_account.html';
+			}
+			return true;
+		}
+		
+	</script>
+</body>
+</html>

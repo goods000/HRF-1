@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/>
+		<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			 // 统一分为10份
+//	        document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+//	        window.onresize = function () {
+//	            document.querySelector('html').style.fontSize = window.screen.width / 10 + 'px';
+//	        }
+		</script>
+		<style type="text/css">
+        .box {height: 100%;box-sizing: border-box;width: 100%;padding: 3% 0;overflow: hidden;-webkit-transform: translateZ(0);-moz-transform: translateZ(0);-ms-transform: translateZ(0);transform: translateZ(0);-webkit-backface-visibility: hidden;-moz-backface-visibility: hidden;-ms-backface-visibility: hidden;backface-visibility: hidden;}
+        ul {width: 100%;overflow: hidden;list-style: none;overflow-y: auto;}
+        ul li {border: 1px solid #1D2B3E;margin-top: -1px;background-color: #131F30;}
+        ul li:nth-last-child(1) {border-bottom: none;}
+        .box .top p {padding: 15px 0;position: relative;color: #94A0C3}
+        .box .top p i {position: absolute;right: 10px;top: 20px;color: #ccc;}
+        .box .top p span {margin: 0 0.3rem 0 0.375rem;color: #3D6EFF;}
+        .box .top p span::before {font-size: 1.5rem}
+        .box .bottom {font-size: 0.3rem;box-sizing: border-box;padding: 0.325rem;display: none;color: #6E6996;}
+        .rightArrow{width: 7px;height: 10px;background-image: url("img/next.png");background-size: 100% 100%}
+        .dropArrow{width: 7px;height: 10px;background-image: url("img/next.png");background-size: 100% 100%;transform: rotate(90deg);}
+		.fa-lg{vertical-align: 0% !important;}
+		</style>
+	</head>
+	<body>
+		<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+	    	<p data-lang="">帮助中心</p>
+		</h1>
+		<div class="box">
+	        <ul>
+	            <li>
+	                <div class="top">
+	                    <p><span class="fa fa-question-circle-o fa-lg" aria-hidden="true"></span>How to charge a coin<i class="rightArrow"></i></p>
+	                </div>
+	                <div class="bottom">
+	                    1、 Login to DCE, click on "My"-"virtual currency transfer" </br>
+	                    2、 Select the virtual currency to be transferred to, showing the currency's full currency address. </br>
+	                    3、 The virtual currency is transferred from the wallet of the virtual currency to the charging address of the platform. Because the virtual Currency network node is long to confirm, in order not to affect your transaction, please forward the virtual currency of the transaction to the platform.
+	
+	                </div>
+	            </li>
+	            <li>
+	                <div class="top">
+	                    <p><span class="fa fa-question-circle-o fa-lg" aria-hidden="true"></span>What is a limit deal<i class="rightArrow"></i></p>
+	                </div>
+	                <div class="bottom">
+	                    Limit trading is a pending order transaction, you can set your own purchase price, and other prices fluctuate to your set price when you can deal
+	                </div>
+	            </li>
+	            <li>
+	                <div class="top">
+	                    <p><span class="fa fa-question-circle-o fa-lg" aria-hidden="true"></span>What is a market transaction<i class="rightArrow"></i></p>
+	                </div>
+	                <div class="bottom">
+	                    Market transaction is not set buy/Sell price, you can guarantee a timely deal, just enter the total amount you want to buy or want to sell the total amount can be. Market transactions can guarantee immediate transaction, but the transaction price is not guaranteed to coincide with the prevailing market prices.
+	                </div>
+	            </li>
+	            <li>
+	                <div class="top">
+	                    <p><span class="fa fa-question-circle-o fa-lg" aria-hidden="true"></span>Transfer to currency not accounted for<i class="rightArrow"></i></p>
+	                </div>
+	                <div class="bottom">
+	                    The address of the wallet you used to transfer or transfer is incorrect, causing the virtual currency to not be posted or posted. Because the wallet address error caused the virtual currency failed to account, such problems have a greater chance to find. So please confirm that the address is true and valid at the time of transfer.
+	                </div>
+	            </li>
+	            <li>
+	                <div class="top">
+	                    <p><span class="fa fa-question-circle-o fa-lg" aria-hidden="true"></span>Transaction Rates<i class="rightArrow"></i></p>
+	                </div>
+	                <div class="bottom">
+	                    Transaction service fees in a fixed proportion of two-way charge, buy and sell fees charged are virtual coin active transaction and passive transaction rate consistent. Service charge is charged at a fixed rate of 0.2% of the transaction amount.
+	
+	                </div>
+	            </li>
+	        </ul>
+	    </div>
+		
+	</body>
+	<script src="layer/layer.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function () {
+            $('.top p').click(function () {
+                $(this).parent().siblings().slideToggle()
+                if ($(this).children('i').hasClass('dropArrow')) {
+                    $(this).children('i').removeClass('dropArrow').addClass('rightArrow')
+                    return
+                }
+                $(this).children('i').removeClass('rightArrow').addClass('dropArrow')
+                $(this).parent().parent().siblings().children('.bottom').slideUp()
+                $(this).parent().parent().siblings().children('.top').children('p').children('i').removeClass(
+                    'dropArrow').addClass('rightArrow')
+            })
+        })
+	</script>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+	    	<p data-lang="">持币账户划转</p>
+		</h1>
+		<div class="sfer">
+			<p class="p">划转</p>
+			<div class="sfer_box s_box">
+				<div class="sfer_l">
+					<div class="flex">
+						<span>从</span>
+						<p class="usable">可用账户</p>
+					</div>
+					<div class="flex">
+						<span>从</span>
+						<p class="money">持币账户</p>
+					</div>
+				</div>
+				<img src="img/sfer_zhuan.png" class="sfer_r"/>
+			</div>
+		</div>
+		<div class="coinn">
+			<div class="coin_box">
+				<p class="coin_p">划转数量</p>
+				<div class="sfer_input">
+					<input type="number" placeholder="请输入划转数量" name="" id="" value="" />
+					<span class="sfer_coin">HRF</span>
+				</div> 
+				<div class="coin_title">
+					<p class="coin_l"><span>可用账号：</span><span>0.0000HRF</span></p>
+					<p class="coin_r"><span>持币账号：</span><span>0.0000HRF</span></p>
+				</div>
+			</div>
+		</div>
+		
+		<button class="annius">确认划转</button>
+	</body>
+	<script type="text/javascript">
+		$(".sfer_r").click(function(){
+			var usable = $(".usable").html();
+			var money = $(".money").html();
+			$(".usable").html(money);
+			$(".money").html(usable);
+		})
+	</script>
+</html>

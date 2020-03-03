@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/font.css" />
+    <script src="js/Zcheck.js" type="text/javascript" charset="utf-8"></script>
+    <style type="text/css">
+    	.phone{background: #131F30;display: grid;}
+    </style>
+</head>
+<body>
+	<h1 class="h1">
+		<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+    	<p data-lang="">提币</p>
+    	<a href="withdraw_record.html" data-lang="">提币记录</a>
+	</h1>
+	<div class="select_box">
+		<div class="div">选择币种</div>
+		<div class="div_r"><span class="coin">USDT</span><img src="img/h_sel.png"/></div>
+	</div>
+	<div class="phone">
+		<div class="phone_contert">
+			<div class="phone_list phone_to bt">
+				<span>转出数量</span>
+				<input type="number" id="num" placeholder="请输入转出数量" />
+			</div>
+			<div class="phone_list bb">
+				<span>收款地址</span>
+				<input type="number" value="" id="qrcode" placeholder="请输入或扫描收款人二维码" />
+				<img src="img/saoyisao.png" class="sao" onClick="BSL.Qcode('0','qrcodeCallback')"/>
+			</div>
+			<div class="phone_list bb">
+				<span>图形验证码</span>
+				<input type="number" value="" id="code" placeholder="请输入图形验证码" />
+				<!--<div id="tu_img">
+					<canvas width="100" height="40" id="verifyCanvas"></canvas>
+                    <img id="code_img">
+				</div> -->
+				<p id="pic_code"></p>
+			</div>
+			<div class="phone_list bb">
+				<span>交易密码</span>
+				<input type="number" value="" id="password" placeholder="请输入交易密码" />
+			</div>
+			<div class="phone_list bb">
+				<span>手续费率</span>
+				<input type="number" value="0.0001" id="rate" readonly="readonly" />
+			</div>
+			<div class="phone_list bb">
+				<span>可用余额</span>
+				<input type="number" value="0.0000" id="balance" readonly="readonly" />
+			</div>
+			<input type="hidden" name="yzm" id="yzm" value="" />
+		</div>
+		<button class="annius" onclick="login()">确认转出</button>
+	</div>	
+	<div class="mo">
+		<div class="mo_box">
+			<ul>
+				<li class="active">USDT</li>
+				<li>TBT</li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+	<script type="text/javascript" src="layer/layer.js" ></script>
+	<script>
+		let image = document.createElement('img');
+	    image.src = drawCode(100,50,'green');
+	    image.onclick = function() {
+	        this.src = drawCode(100,50,'green');
+	    };
+		document.getElementById("pic_code").appendChild(image);
+		$(".select_box").click(function(){$(".mo").show();})
+		$(".mo").click(function(){$(this).hide();})
+		$(".mo .mo_box ul li").each(function(){
+			$(this).click(function(){
+				$(".coin").html($(this).html());
+				$(this).addClass("active").siblings().removeClass("active");;
+				$(".mo").hide();
+			})
+		})
+		
+		function qrcodeCallback(result){
+			var lang="${lang}";
+			if(result.indexOf(window.location.host)==-1){ //等于-1表示这个字符串中没有o这个字符
+				layer.msg('当前扫描的不属于HRF二维码');
+			}else{
+				window.location.href=result
+			}
+		}
+		
+		function login(){
+			var num = $("#num").val();
+			var qrcode = $("#qrcode").val();
+			var code = $("#code").val();
+			var passwords = $("#password").val();
+			var yzm = $("#yzm").text();
+			if( num === ""){
+				layer.msg('请输入转出数量');
+				$("#num").focus();
+				return false;
+			}
+			if( qrcode === ""){
+				layer.msg('请输入或扫描收款人二维码');
+				$("#qrcode").focus();
+				return false;
+			}
+			if(code === ""){
+				layer.msg('请输入图形验证码');
+				$("#code").focus();
+				return false;
+			}
+			if(passwords === ""){
+				layer.msg('请输入交易密码');
+				$("#password").focus();
+				return false;
+			}
+			if(code != yzm){
+				layer.msg('请输入正确的验证码');
+				$("#yzm").focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
+</body>
+</html>

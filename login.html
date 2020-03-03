@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="css/style.css"/>
+    <style type="text/css">
+    	.login{background: url(img/invite_bg.png);background-size: 100% 100%;}
+    </style>
+</head>
+<body>
+	<div class="login">
+		<div class="login-top">
+			<img class="logo" src="img/login_logo.png"/>
+			<!--<h2>登录</h2>-->
+		</div>
+		<div class="login_conter login_an">
+			<div class="login_list">
+				<i><img src="img/login_1.png"/></i>
+				<input id="account" type="number" placeholder="请输入登录账号" />
+			</div>
+			<div class="login_list">
+				<i><img src="img/login_2.png"/></i>
+				<input id="password" type="password" placeholder="请输入密码" />
+			</div>
+			<div class="login_list">
+				<i><img src="img/res_2.png"/></i>
+				<input id="code" type="number" placeholder="请输入验证码" />
+				<p id="code_box"></p>
+			</div>
+			<button class="anniu" onclick="login()">登录</button>
+			<div class="login_bottom">
+				<a href="forgot.html">忘记密码？</a>
+				<a href="register.html">注册</a>
+			</div>
+			<input type="hidden" name="yzm" id="yzm" value="" />
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-3.4.1.min.js" ></script>
+	<script type="text/javascript" src="layer/layer.js" ></script>
+	<script src="js/Zcheck.js" type="text/javascript" charset="utf-8"></script>
+	<script>
+		$("input").on("blur",function(){
+            var toFix=$(this).offset().top;
+            window.scroll(0,toFix);//失焦后强制让页面归位
+        });
+		/*验证码*/
+		let image = document.createElement('img');
+	    image.src = drawCode(100,50,'green');
+	    image.onclick = function() {
+	        this.src = drawCode(100,50,'green');
+	    };
+		document.getElementById("code_box").appendChild(image);
+		$("input").on("blur",function(){
+                var toFix=$(this).offset().top;
+                window.scroll(0,toFix);//失焦后强制让页面归位
+        });
+		function login(){
+			var phone = $("#account").val();
+			var passwords = $("#password").val();
+			var code = $("#code").val();
+			var yzm = $("#yzm").text();
+			if( phone === ""){
+				layer.msg('请输入登录账号');
+				$("#account").focus();
+				return false;
+			}
+			if(passwords === ""){
+				layer.msg('请输入密码');
+				$("#password").focus();
+				return false;
+			}
+			if(code === ""){
+				layer.msg('请输入验证码');
+				$("#code").focus();
+				return false;
+			}
+			console.log(code);
+			console.log(yzm);
+			if(code != yzm){
+				layer.msg('请输入正确的验证码');
+				$("#yzm").focus();
+				return false;
+			}
+			return true;
+		}
+	</script>
+</body>
+</html>
