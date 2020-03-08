@@ -69,4 +69,66 @@
 			})
 		})
 	</script>
+	<!--<script type="text/javascript">
+		var value =document.getElementById("word_box");
+		var words = "";
+		var arr=[];
+		$(".word .word_zi").children().each(function(){
+			$(this).click(function(){
+
+				$(this).toggleClass("active");
+				if ($(this).hasClass("active")) {
+					var num = $(this).html();
+	                var dom=document.createElement("span");
+	                dom.innerHTML=num;
+					var word = document.body.appendChild(dom);
+	                value.appendChild(word);
+
+	                if(words == ""){
+	                	words = num;
+	                }else{
+	                	words = words+","+num;
+	                }
+                }else{
+                	$(this).removeClass("active");
+                	var num = $(this).html();
+                	$(".word_box span").each(function(i){
+                		var type = $(".word_box span").eq(i).text();
+                		if (type == num) {
+							$(this).remove();
+	                	}
+                	})
+                	if(words.indexOf(","+num) != -1 ){
+                    	words = words.replace(","+num,"");
+                	}else{
+                		if(words.indexOf(num+",") != -1 ){
+                        	words = words.replace(num+",","");
+                		}else{
+                        	words = words.replace(num,"");
+                		}
+                	}
+                }
+			})
+		})
+		function word_remember(){
+			var pwd = "[[${pwd}]]";
+			var uid = "[[${uid}]]";
+			$.ajax({
+				type : "POST",
+				url : '/checkWords',
+				dataType : "json",
+				data : {
+					'uid' : uid,
+					'words' : words,
+				},
+				success : function(data) {
+					if (data.success == true) {
+						location.href='/word_remember?pwd='+pwd+'&uid='+uid;
+					} else {
+						layer.msg(data.msg, {icon : 5,time : 1000}); 
+					}
+				}
+			})
+		}
+	</script>-->
 </html>
