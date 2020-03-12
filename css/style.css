@@ -236,7 +236,7 @@ border-top: 5px solid #6982A3;border-right: 5px solid #081724;border-bottom: 5px
 .recode-cont2 dl dt{padding: 12px 0px 5px;text-align: center;}
 .recode-cont2 dl dt span{font-size: 13px;padding: 10px 0px 0;display: block;}
 .recode-cont2 h3{font-size: 13px; color: #7D7D7D;font-weight: normal;padding: 15px 10px;}
-.recode-cont3{padding: 0px 20px;color: #f5f5f5;font-size: 0.5rem;}
+.recode-cont3{padding: 0px 20px;color: #f5f5f5;font-size: 0.8rem;margin-top: 5px;}
 
 
 .set_box{display: flex;flex-direction: row;align-items: center;justify-content: flex-start;}
@@ -328,7 +328,7 @@ width: 40%;padding: 2%;text-align: center;overflow: hidden;white-space: nowrap;t
 .tixn_record li .p{color: #000;font-size: 15px;}
 .tixn_record li .je{color: #FFAF0A;float: right;}
 .tixn_record li .je1{color: #999;float: right;}
-.tixn_record .span{clear:both;display: block;}
+.tixn_record .span{clear:both;display: block;margin: 10px 0;}
 .tixn_record .span span{color: #94A0C3;}
 .tixn_record .span u{color: #94A0C3;}
 
