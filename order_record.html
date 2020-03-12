@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+		<link rel="stylesheet" type="text/css" href="css/font.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.css"/>
+		<script src="js/jquery-3.4.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.recode-tab{background: none !important;}
+			.recodetab-list{background: none !important;}
+			.tab-list-li{margin: 15px;}
+		</style>
+	</head>
+	<body>
+		<h1 class="h1">
+			<button class="iconfont icon-xiangzuo1" onclick="javascript:history.back(-1);"></button>
+	    	<p data-lang="">订单记录</p>
+		</h1>
+		<div class="recode-tab">
+			<div class="tab-a">
+				<a href="javascript:;" class="ook">买入记录<span></span></a>
+				<a href="javascript:;">卖出记录<span></span></a>
+
+			</div>
+			<div class="recodetab-list mr">
+				<div class="tab-list-li border_b out mt">
+					<div class="recode-cont1">
+						<div class="title">
+							<span>456523265</span>
+						</div>
+						<div class="out_btn">
+							已完成
+						</div>
+					</div>
+					<div class="recode-cont2">
+						<dl>
+							<dt><p>买入数量</p><span>100</span></dt>
+							<dt><p>买入单价</p><span>6.326</span></dt>
+							<dt><p>买入总价</p><span>100</span></dt>
+						</dl>
+					</div>
+					<div class="recode-cont3">
+						2020-02-18  10:26
+					</div>
+				</div>
+				<div class="tab-list-li border_b out mt">
+					<div class="recode-cont1">
+						<div class="title">
+							<span>456523265</span>
+						</div>
+						<div class="out_btn1">
+							未完成
+						</div>
+					</div>
+					<div class="recode-cont2">
+						<dl>
+							<dt><p>买入数量</p><span>100</span></dt>
+							<dt><p>买入单价</p><span>6.326</span></dt>
+							<dt><p>买入总价</p><span>100</span></dt>
+						</dl>
+					</div>
+					<div class="recode-cont3">
+						2020-02-18  10:26
+					</div>
+				</div>
+			</div>
+			<div class="recodetab-list">
+				<div class="tab-list-li border_b out mt">
+					<div class="recode-cont1">
+						<div class="title">
+							<span>456523265</span>
+						</div>
+						<div class="out_btn">
+							已完成
+						</div>
+					</div>
+					<div class="recode-cont2">
+						<dl>
+							<dt><p>卖出数量</p><span>100</span></dt>
+							<dt><p>卖出单价</p><span>6.326</span></dt>
+							<dt><p>卖出总价</p><span>100</span></dt>
+						</dl>
+					</div>
+					<div class="recode-cont3">
+						2020-02-18  10:26
+					</div>
+				</div>
+			</div>
+	</body>
+	<script type="text/javascript">
+		$('.tab-a a').click(function(){
+			var index = $('.tab-a a').index(this);
+			$('.tab-a a').removeClass('ook').eq(index).addClass('ook');
+			$('.recodetab-list').removeClass('mr').eq(index).addClass('mr')
+		})
+	</script>
+</html>
